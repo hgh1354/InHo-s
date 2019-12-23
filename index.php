@@ -1,119 +1,88 @@
-<!DOCTYPE html>
-<html lang="kr">
+<?
+	require_once 'API/dbconn.php';
+	require_once './layout.php';
+	
+	$layout = new layout;
+?>
+<!-- Top structure -->
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Health Tube</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		
+		<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+	</head>
+	<body>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="">
-  <meta name="author" content="Dashboard">
-  <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-  <title>Account</title>
+<!-- Header Menu-->
+<?$layout->menu();?>
+		<!-- Banner -->
+			<section id="banner">
+				<div class="inner">
+					<h1>운동 <span>을 처음 접하는 당신<br />
+					알맞는 운동영상을 보여드립니다</span></h1>
+					<ul class="actions">
+						<li><a href="CustomVList.php" class="button alt">Get Started</a></li>
+					</ul>
+				</div>
+			</section>
 
-  <!-- Favicons -->
-  <link href="img/favicon.png" rel="icon">
-  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+		<!-- Three -->
+			<section id="three">
+				<div class="inner">
+					<article>
+						<div class="content">
+							<span class="icon fa-laptop"></span>
+							<header>
+								<h3>맞춤형 서비스</h3>
+							</header>
+							<p>회원이 등록한 정보에 해당하는 <br>운동영상을 추천해드립니다.</p>
+						</div>
+					</article>
+					<article>
+						<div class="content">
+							<span class="icon fa-diamond"></span>
+							<header>
+								<h3>등록된 영상서비스</h3>
+							</header>
+							<p>9999만 영상 서비스<br></p>
+						</div>
+					</article>
+					<article>
+					<div class="content">
+							<span class="icon fa-laptop"></span>
+							<header>
+								<h3>좋아요(스크랩)</h3>
+							</header>
+							<p>영상에 좋아요를 눌러 <br>나만의 보관함에 보관</p>
+						</div>
+					</article>
+				</div>
+			</section>
 
-  <!-- Bootstrap core CSS -->
-  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <!--external css-->
-  <link href="lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
-  <!-- Custom styles for this template -->
-  <link href="css/style.css" rel="stylesheet">
-  <link href="css/style-responsive.css" rel="stylesheet">
+		<!-- Banner -->
+			<section id="banner2">
+				<div class="inner">
+					<h1>관심키워드 <span>로 편하게<br />
+					운동영상을 찾아보세요</span></h1>
+					<ul class="actions">
+						<li><a href="AllVList.php" class="button alt">Get Started</a></li>
+					</ul>
+				</div>
+			</section>
 
-  <!-- =======================================================
-    Template Name: Dashio
-    Template URL: https://templatemag.com/dashio-bootstrap-admin-template/
-    Author: TemplateMag.com
-    License: https://templatemag.com/license/
-  ======================================================= -->
-</head>
+<!-- Footer -->
+<?$layout->footer();?>
 
-<body>
-  <!-- **********************************************************************************************************************************************************
-      MAIN CONTENT
-      *********************************************************************************************************************************************************** -->
-  <div id="login-page">
-    <div class="container">
-      <form class="form-login" action="api/member/login_2.php" method="post">
-        <h2 class="form-login-heading">Account</h2>
-        <div class="login-wrap">
-          <input type="text" class="form-control" placeholder="User ID" autofocus="" name="id" >
-          <br>
-          <input type="password" class="form-control" placeholder="Password" name="pass">
-		  <br>
-          <!--<label class="checkbox">-->
-            <span class="pull-right">
-            <a data-toggle="modal" href="login.html#myModal"> 비밀번호를 잊으셨나요?</a>
-            </span>
-          <!--</label>-->
-		  <br><br>
+<!-- Scripts and Bottom structure-->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
 
-		  <button class="btn btn-theme btn-block" href="#" type="submit" ><i class="fa fa-lock"></i> 로그인 </button>
-
-          <hr>
-          <div class="registration">
-            아직 회원이 아니신가요?<br/>
-            <a class="" href="register_2.php">
-              회원가입
-              </a>
-          </div>
-        </div>
-      </form>
-
-      <!-- Modal -->
-      <form action="./api/member/pass_mail.php" method="post">
-        <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">비밀번호를 찾기위해 아이디, 이름, 이메일이 필요합니다!</h4>
-              </div>
-              <div class="modal-body">
-                <label><strong>가입시 기재한 이름을 입력해주세요!</strong></label>
-                <input type="text" name="per_name" placeholder="이름을 입력해주세요 . . ." autocomplete="off" required="" class="form-control placeholder-no-fix"><br><br>
-
-                <label><strong>가입시 기재한 ID를 입력해주세요!</strong></label>
-                <input type="text" name="per_id" id="per_id" placeholder="ID를 입력해주세요 . . ." autocomplete="off" required="" onkeyup="duplicationCheck()" class="form-control placeholder-no-fix"><br><br>
-
-                <label><strong>가입시 기재한 이메일을 입력해주세요! 임시 비밀번호가 전송됩니다.</strong></label>
-                <input type="text" name="email" placeholder="이메일을 입력해주세요 . . ." autocomplete="off" required="" class="form-control placeholder-no-fix">
-              </div>
-              <div class="modal-footer">
-                <button data-dismiss="modal" class="btn btn-default" type="button">취소</button>
-                <button class="btn btn-theme" type="submit">제출</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </form>
-      <!-- modal -->
-
-    </div>
-  </div>
-  <!-- js placed at the end of the document so the pages load faster -->
-  <script src="lib/jquery/jquery.min.js"></script>
-  <script src="lib/bootstrap/js/bootstrap.min.js"></script>
-  <!--BACKSTRETCH-->
-  <!-- You can use an image of whatever size. This script will stretch to fit in any screen size.-->
-  <script type="text/javascript" src="lib/jquery.backstretch.min.js"></script>
-  <script>
-    //$.backstretch("img/login-bg.jpg", {
-    //  speed: 500
-    //});
-    $.backstretch("img/login2.png", {
-      speed: 1000
-    });
-	//alert("임시 id&password = 1")
-  function duplicationCheck()
-  {
-    var chkid = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
-    if(chkid.test($("input[name=per_id]").val())) {
-      document.getElementById("per_id").value = "";
-    }
-  }
-  </script>
-</body>
-
+			<script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+	</body>
 </html>

@@ -1,0 +1,112 @@
+1. AllVList.php 검색 필터 모듈화 후 좋아요 한 영상에 적용(LikeVList.php)
+
+2. 카테고리 분류 (목적 - 부위 - 장소 - 기구)
+
+3. 맞춤 서비스 레이팅 매칭 로직 짜기
+	ex)짝 매칭 시스템 같은 경우엔
+	   1차 거르기 : 남 - 녀
+	   2차 거르기 : 점수를 측정해서 점수차가 0.8 이상이 나면 매칭 x
+
+4. 영상 더보기 버튼 구현 생각..
+
+5. LikeVList.php - AllVList.php 같은 유형의 영상 리스트 이므로 모듈화?
+
+6. 영상 담을 테이블 생성 (hVideo)
+->vIdx(인덱스), vId(영상 아이디), vTitle(글 제목), vContent(글 내용), vHit(조회 수), vLike(좋아요 수), vThumbnail(썸네일)
+  vDate(게시일), vCategory1~4(카테고리), vPost(등록자) range(공개/비공개)<9+4>
+
+7. 카테고리 테이블 생성
+
+8. 유튜브 썸네일, 유튜브 임베드 패턴 파악
+
+9. 좋아요 테이블 생성
+
+10. 회원 개인 맞춤 카테고리 테이블
+
+*랜덤 셀렉트
+MySQL:
+SELECT column FROM table ORDER BY RAND() LIMIT 1
+
+
+PostgreSQL:
+SELECT column FROM table ORDER BY RANDOM() LIMIT 1
+
+
+Microsoft SQL Server:
+SELECT TOP 1 column FROM table ORDER BY NEWID()
+
+
+IBM DB2:
+SELECT column FROM table ORDER BY RAND() FETCH FIRST 1 ROWS ONLY
+
+
+Oracle:
+SELECT column FROM ( SELECT column FROM table ORDER BY dbms_random.value ) WHERE rownum = 1
+
+https://pxhere.com
+무료 사진
+
+https://nybounce.wordpress.com/2016/03/16/site%EB%82%B4-content%EA%B0%80-%EA%B0%80%EB%B3%80%EA%B8%B8%EC%9D%B4%EC%9D%B8-%EA%B2%BD%EC%9A%B0-footer-%ED%95%98%EB%8B%A8-%EC%B2%98%EB%A6%AC-%EB%B0%A9%EB%B2%95/
+하단 고정 작업
+
+https://bootsnipp.com/snippets/featured/login-screen-with-form 
+부트 스트랩 폼
+
+http://bootstrapk.com/css/
+그리드 시스템 보기
+
+https://getbootstrap.com/docs/4.0/components/forms/
+부트 스트랩 폼
+
+http://webdir.tistory.com/472
+유튜브 썸네일 추출 방법
+
+http://youtube-korea.tistory.com/entry/%EC%9C%A0%ED%8A%9C%EB%B8%8C-%EB%8F%99%EC%98%81%EC%83%81-%EC%8D%B8%EB%84%A4%EC%9D%BC-%EC%B6%94%EC%B6%9C-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8
+유튜브 썸네일 추출기 (패턴 포함)
+
+http://lab.remindori.com/tool/youtube.php
+유튜브 임베디드 생성기
+
+https://ko.wikihow.com/%EB%8C%80%EB%AC%B8
+위키하우 방법찾기
+
+https://blog.naver.com/skinfosec2000/220482240245
+->바인드 -> sql 인잭션
+
+https://zetawiki.com/wiki/Lib_pdo.php
+pdo 접근 함수 구현
+
+1. 영상 등록 스크립트 처리 
+->클리어
+
+2. 영상 등록 API 구현 
+->클리어
+
+3. 전체 영상 출력 및 페이지 네이션 + 검색 필터
+->더 보기 지원 완료 (이제 ajax 뒤로가기시 데이터 유지 구현해야돼)
+
+4. 비공개 글 같은 경우엔 글 내용 보기에서도 비공개 기능 구현  
+->세션이 완료 되어야 함
+
+5. 비동기 방식 필터링 + 검색 
+
+6. 전체 영상 db에서 출력해주기(일단 전체 다꺼내) + 페이지 네이션 
+
+
+http://start0.tistory.com/33
+->이거 구현하기	
+
+http://blog.kurien.co.kr/366?category=534355
+->레이아웃 분리
+
+http://ragona7772016.tistory.com/18
+->ajax 뒤로가기 로직 유지
+
+https://aspdotnet.tistory.com/973
+->Ajax 요청 후, 다른 페이지 이동 후 뒤로가기 처리하기
+
+http://www.txt2re.com/
+->정규식 생성기
+
+http://csslab.tistory.com/104
+->크롤링 참고
